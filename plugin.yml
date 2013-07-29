@@ -1,0 +1,7 @@
+name: RCM
+main: sinius.rollerCoaster.Main
+version: 1.40
+commands:
+   rcm:
+       description: base command.
+       usage: "Do /rcm help for all the available commands"
