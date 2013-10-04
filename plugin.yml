@@ -1,6 +1,6 @@
 name: RCM
-main: sinius.rollerCoaster.Main
-version: 1.40
+main: sinius.rcm.Main
+version: 1.50
 commands:
    rcm:
        description: base command.

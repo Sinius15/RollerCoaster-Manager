@@ -32,9 +32,11 @@ public class CommandHandler implements CommandExecutor {
 	
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-		
+		if(args.length == 0){
+			sender.sendMessage(ChatColor.RED + "Do /rcm help for all teh avalable commands.1");
+		}
 		if(!PermissionHandler.doesCommandExist(args[0])){
-			sender.sendMessage(ChatColor.RED + "Do /rcm help for all the avalable commands.");
+			sender.sendMessage(ChatColor.RED + "Do /rcm help for all the avalable commands.2");
 			return true;
 		}
 		
@@ -57,11 +59,11 @@ public class CommandHandler implements CommandExecutor {
 			}
 			return true;
 		}
-		if(args[0].equalsIgnoreCase("list")){
+		else if(args[0].equalsIgnoreCase("list")){
 			ListCommand.Start(sender);
 			return true;
 		}
-		if(args[0].equalsIgnoreCase("remove")){
+		else if(args[0].equalsIgnoreCase("remove")){
 			if(args.length != 2){
 				sender.sendMessage(ChatColor.RED + "Usage: /rcm remove [name]");
 			}else{
@@ -69,7 +71,7 @@ public class CommandHandler implements CommandExecutor {
 			}
 			return true;
 		}
-		if(args[0].equalsIgnoreCase("start")){
+		else if(args[0].equalsIgnoreCase("start")){
 			if(args.length != 2){
 				sender.sendMessage(ChatColor.RED + "Usage: /rcm start [name]");
 			}else{
@@ -77,12 +79,12 @@ public class CommandHandler implements CommandExecutor {
 			}
 			return true;
 		}
-		if(args[0].equalsIgnoreCase("help")){
+		else if(args[0].equalsIgnoreCase("help")){
 			HelpCommand.Start(sender);
 			return true;
 		}
 		
-		if(args[0].equalsIgnoreCase("setCart")){
+		else if(args[0].equalsIgnoreCase("setCart")){
 			if(args.length !=3){
 				sender.sendMessage(ChatColor.RED + "Usage: /rcm setCart [name] [minecart/ chestCart/ furnaceCart/ tntCart/ hopperCart]");
 				return true;
@@ -94,18 +96,20 @@ public class CommandHandler implements CommandExecutor {
 			return true;
 		}
 		
-		if(args[0].equalsIgnoreCase("setType")){
+		else if(args[0].equalsIgnoreCase("setType")){
+			System.out.println("yolo");
 			if(args.length != 3){
-				sender.sendMessage(ChatColor.RED + "Usage: /rcm setType [name] [start/end]");
+				sender.sendMessage(ChatColor.RED + "Usage: /rcm setType [name] [start/end]3");
 				return true;
 			}
 			if(!setTypeCommand.Start(sender, args[1], args[2])){
-				sender.sendMessage(ChatColor.RED + "Usage: /rcm setType [name] [start/end]");
+				sender.sendMessage(ChatColor.RED + "Usage: /rcm setType [name] [start/end]4");
 				return true;
 			}
+			return true;
 		}
 		
-		if(args[0].equalsIgnoreCase("teleport")){
+		else if(args[0].equalsIgnoreCase("teleport")){
 			if(args.length != 3){
 				sender.sendMessage(ChatColor.RED + "Usage: /rcm teleport [name] [player]");
 				return true;
@@ -122,6 +126,9 @@ public class CommandHandler implements CommandExecutor {
 				}
 			}
 			return true;
+		}
+		else{
+			sender.sendMessage(ChatColor.RED + "Do /rcm help for all the avalable commands.");
 		}
 		/*
 		if(args[0].equalsIgnoreCase("setSpeed")){
@@ -144,7 +151,7 @@ public class CommandHandler implements CommandExecutor {
 			return true;
 		}
 		*/
-		sender.sendMessage(ChatColor.RED + "Do /rcm help for all the avalable commands.");
+		
 		
 		return true;
 	}

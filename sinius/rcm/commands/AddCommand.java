@@ -5,6 +5,7 @@ import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.util.Vector;
 
 import sinius.rcm.Main;
 import sinius.rcm.RollerPoint;
@@ -18,6 +19,7 @@ public class AddCommand{
 		
 		Player who = (Player) sender;
 		Block b = who.getTargetBlock(null, 100);
+	
 		Location loc = b.getLocation();
 		
 		if(type.equalsIgnoreCase("start")){
@@ -39,6 +41,17 @@ public class AddCommand{
 			return true;
 		}
 		return false;
+	}
+	
+	public static Block getTargetBlock(Player player, int range) {
+	    Location loc = player.getEyeLocation();
+	    Vector dir = loc.getDirection().normalize();
+	    Block b = null;
+	    for (int i = 0; i <= range; i++) {
+	        b = loc.add(dir).getBlock();
+	    }
+	 
+	    return b;
 	}
 
 }

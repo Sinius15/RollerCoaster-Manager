@@ -12,14 +12,15 @@ public class Main extends JavaPlugin{
 	
 	public static Data d;
 	public static CommandHandler command = new CommandHandler();
-	public static File configFile = new File(Main.getPlug().getDataFolder() + "//config.yml");
+	public static File configFile;
 	public static FileConfiguration config;
 	
 	@Override
 	public void onLoad() {
-		
+		configFile = new File(Main.getPlug().getDataFolder() + "//config.yml");
 		
 	};
+	
 	
 	@Override
 	public void onEnable() {
