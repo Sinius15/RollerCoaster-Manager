@@ -18,7 +18,7 @@ public class Main extends JavaPlugin{
 	@Override
 	public void onLoad() {
 		configFile = new File(Main.getPlug().getDataFolder() + "//config.yml");
-		
+		System.out.println("lalalalala");
 	};
 	
 	
